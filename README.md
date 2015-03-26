@@ -5,8 +5,8 @@ Parsing json is so easy, until you need to move around more than a few meg.  If 
 do you need to use a javascript parser to parse javascript object notation?  Why not let the browser's javascript engine
 handle it?  Also, json that is big would be easier to load in parts rather than a huge chuck, jsonite does both.
 
-Note: you should only use jsonite if you sanitize on your server.  Otherwise, DO NOT USE jsonite or ANY practice.  Also,
-you are potentially storing malicious code, shame on you.
+Note: you should only use jsonite if you sanitize on your server.  Otherwise, DO NOT USE jsonite or ANY practice
+recommended by jsonite.  Also, you are potentially storing malicious code, shame on you.
 
 Many apps use json like this:
 Note: Industry standard, slow
