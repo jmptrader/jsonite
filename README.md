@@ -75,7 +75,8 @@ $.when($.getJSON('base.json'), $.getJSON('part1.json'), $.getJSON('part2.json'))
 
 jsonite version (finally!)
 NOTE: this is the initial file, which can load out of order
-```
+```javascript
+
 jsonite.init('user records', {parts:[]}, 2, function(base, part1, part2) {
 	this.concat(base.parts, part1, part2);
 	
