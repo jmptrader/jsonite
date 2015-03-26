@@ -8,10 +8,11 @@ handle it?  Also, json that is big would be easier to load in parts rather than 
 Note: you should only use jsonite if you sanitize on your server.  Otherwise, DO NOT USE jsonite or ANY practice.  Also,
 you are potentially storing malicious code, shame on you.
 
-Many apps use json like so:
+Many apps use json like this:
+Note: Industry standard, slow
 ```javascript
 
-$.getJSON(url, function(result) {
+$.getJSON('file.json', function(result) {
 	var json = result[0];
 	
 	//proceed with instruction here
@@ -31,9 +32,10 @@ included as:
 
 
 If you have more than one type of json:
+Note: Industry standard, slow
 ```javascript
 
-$.when($.getJSON(url1), $.getJSON(url2)).then(function(result1, result2) {
+$.when($.getJSON('file1.json'), $.getJSON('file2.json')).then(function(result1, result2) {
 	var json1 = result1[0],
 		json2 = result[1];
 	
@@ -45,18 +47,34 @@ jsonite version (notice we just used javascript, no actual use of jsonite yet, i
 
 ```javascript
 
-var json1 = [],
-	json2 = [];
+var json1 = [];
+var json2 = [];
 ```
 included as:
 ```html
-<script src="file.json" async></script>
+<script src="file1.json" async></script>
+<script src="file2.json" async></script>
 ```
 ---
 
 
 What if you need to slice up your json so it can transfer asynchronously, and then reassemble when ready on the client?
-NOTE: this is the initial file, which can load out of order, also: Finally jsonite!
+Note: Industry standard, slow
+```javascript
+
+$.when($.getJSON('base.json'), $.getJSON('part1.json'), $.getJSON('part2.json')).then(function(result1, result2, result3) {
+	var base = result1[0],
+		part1 = result2[1],
+		part2 = result3[2];
+		
+	base.parts = base.parts.concat(part1, part2);
+	
+	//proceed with instruction here
+});
+```
+
+jsonite version (finally!)
+NOTE: this is the initial file, which can load out of order
 ```
 jsonite.init('user records', {parts:[]}, 2, function(base, part1, part2) {
 	this.concat(base.parts, part1, part2);
