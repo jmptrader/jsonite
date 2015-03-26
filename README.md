@@ -37,7 +37,7 @@ Note: Industry standard, slow
 
 $.when($.getJSON('file1.json'), $.getJSON('file2.json')).then(function(result1, result2) {
 	var json1 = result1[0],
-		json2 = result[1];
+		json2 = result2[1];
 	
 	//proceed with instruction here
 });
