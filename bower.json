@@ -1,0 +1,27 @@
+{
+  "name": "jsonite",
+  "main": "jsonite.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/robertleeplummerjr/jsonite",
+  "authors": [
+    "Robert Plummer <RobertLeePlummerJr@Gmail.com>"
+  ],
+  "description": "json expedited",
+  "keywords": [
+    "json",
+    "fast",
+    "async",
+    "js",
+    "jsonite",
+    "expedited",
+    "split"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
